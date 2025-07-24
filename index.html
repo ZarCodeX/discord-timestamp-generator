@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Timestamp Generator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <meta name="description" content="Discord Timestamp Generator by ZarCodeX – create accurate Discord time formats like <t:unix:R> easily. Fast, free, and customizable!" />
+    <meta name="keywords" content="discord timestamp generator, discord time formats, unix timestamp, relative time, <t:unix>, discord time tool, ZarCodeX" />
+    <meta name="author" content="Muhammad Abuzar (ZarCodeX)" />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" href="img/icons/ZarCodeX - Round.png" sizes="any" />
+    <link rel="icon" href="img/icons/ZarCodeX - Round.png" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="img/icons/ZarCodeX - Round.png" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#dcdce7" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111111" />
+    <meta name="msapplication-navbutton-color" content="#111111" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Discord Timestamp Generator | ZarCodeX" />
+    <meta property="og:description" content="Generate and customize Discord timestamps like <t:unix:R>, <t:unix:F>, and more with ease. Built by ZarCodeX." />
+    <meta property="og:url" content="https://zarcodex.github.io/discord-timestamp-generator/" />
+    <meta property="og:site_name" content="Discord Timestamp Generator" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/ZarCodeX/zarcodex.github.io/main/img/icons/ZarCodeX - Round.png" />
+    <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/ZarCodeX/zarcodex.github.io/main/img/icons/ZarCodeX - Round.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="628" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Discord Timestamp Generator | ZarCodeX" />
+    <meta name="twitter:description" content="Quickly convert any date/time into Discord-supported formats like <t:unix:R>. Free and user-friendly." />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/ZarCodeX/zarcodex.github.io/main/img/icons/ZarCodeX - Round.png" />
+    <meta name="twitter:site" content="@ZarCodeX" />
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h1>Discord Timestamp Generator</h1>
+            </div>
+            
+            <p class="subtitle">Create Discord-style timestamps for any date and time. Simply choose a format and copy the code to use in Discord!</p>
+            
+            <div class="theme-toggle" id="themeToggle">
+                <button class="theme-btn active" id="darkBtn"><i class="fas fa-moon"></i></button>
+                <button class="theme-btn" id="lightBtn"><i class="fas fa-sun"></i></button>
+            </div>
+        </header>
+
+        <div class="main-grid">
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-calendar-alt"></i> Date & Time</h2>
+                <div class="input-group">
+                    <div class="input-container">
+                        <label for="datetime">Select Date & Time</label>
+                        <input type="datetime-local" id="datetime">
+                    </div>
+                </div>
+                
+                <div class="input-row">
+                    <button class="current-time-btn" id="currentTimeBtn">
+                        <i class="fas fa-sync-alt"></i> Use Current Time
+                    </button>
+                </div>
+                
+                <h2 class="card-title"><i class="fas fa-paint-brush"></i> Timestamp Styles</h2>
+                <p>Select a format to preview and generate the Discord code</p>
+                
+                <div class="format-grid" id="formatGrid">
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2 class="card-title"><i class="fas fa-eye"></i> Preview</h2>
+                
+                <div class="preview-container">
+                    <div class="preview-title">Your Timestamp Preview</div>
+                    <div class="preview-text" id="previewText">April 27, 2025 9:41 AM</div>
+                </div>
+                
+                <h2 class="card-title"><i class="fas fa-code"></i> Discord Code</h2>
+                <div class="code-container">
+                    <label class="code-label">Copy this code to use in Discord</label>
+                    <input type="text" id="discordCode" class="discord-code" readonly value="<t:1714218060:f>">
+                    <div class="copy-success" id="copySuccess">Copied to clipboard!</div>
+                    <button class="copy-btn" id="copyBtn">
+                        <i class="fas fa-copy"></i> Copy
+                    </button>
+                </div>
+                
+                <div class="info-section">
+                    <h2 class="card-title"><i class="fas fa-info-circle"></i> How to Use</h2>
+                    <ul class="info-list">
+                        <li>Select a date and time or use the current time</li>
+                        <li>Choose a timestamp format from the options</li>
+                        <li>Copy the generated Discord code</li>
+                        <li>Paste it anywhere in Discord to display the timestamp</li>
+                    </ul>
+                    <div class="note">
+                        <strong>Note:</strong> The timestamp will automatically adjust to each viewer's time zone!
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Discord Timestamp Generator | All timestamps convert to viewer's local time | Created by ZarCodeX</p>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
